@@ -1,15 +1,24 @@
 ﻿#include<stdio.h>
-#include"queue.h"
+
+#define MAXN 100
+typedef int Elemtype;
+typedef int Status;
+
+typedef struct {
+    Elemtype queue[MAXN];
+    int front, rear;
+}sequeuetp;
+
+void initqueue(sequeuetp Q);
 
 void fib(int k, int max);
+
 sequeuetp Q;
 
 int main()
 {
     initqueue(Q);
-    int k, max;
-    scanf("%d %d", &k, &max);
-    fib(k, max);
+    fib(4, 200);
 }
 
 void fib(int k, int max)
@@ -52,4 +61,10 @@ void fib(int k, int max)
         printf("%d ", f[i]);
     }
     printf("%d\n", f[n]);
+}
+
+void initqueue(sequeuetp Q)
+{
+    Q.front = 0;
+    Q.rear = 0;
 }
